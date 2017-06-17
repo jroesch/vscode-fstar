@@ -1,0 +1,58 @@
+{
+    "name": "fstar",
+    "displayName": "fstar",
+    "description": "An editor mode for the F* programming language.",
+    "version": "0.0.1",
+    "publisher": "jroesch",
+    "engines": {
+        "vscode": "^1.13.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.sayHello"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [{
+            "command": "extension.sayHello",
+            "title": "Hello World"
+        }],
+        "languages": [
+            {
+                "id": "fstar",
+                "aliases": [
+                    "F*"
+                ],
+                "extensions": [
+                    ".fst"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "fstar",
+                "scopeName": "source.fstar",
+                "path": "./syntaxes/fstar.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "dependencies": {
+        "carrier": "0.3.0"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    }
+}
